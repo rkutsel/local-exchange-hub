@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Exchange Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.css"
+    />
+    <script defer src="/js/all.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar is-dark"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/" class="navbar-item has-text-white"><strong
+              >Home</strong></a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                {{#if loggedIn}}
+                  <a id="logout" class="button is-danger"><strong
+                    >Logout</strong></a>
+                {{else}}
+                  <a href="/login" class="button is-info"><strong>Log in</strong></a>
+                  <a href="/signup" class="button is-primary"><strong>Sign up</strong></a>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="hero is-small is-info">
+      <div class="hero-body">
+        <p class="title">
+          Local Exchange Hub
+        </p>
+        <p class="subtitle">
+          Trade goods or give them away for free  
+        </p>
+      </div>
+    </section>
+    {{{body}}}
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Local Exchange Hub</strong>
+        The source code is available and licensed under
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+        license.
+      </p>
+      <p>
+        <a href="https://github.com/rkutsel/local-exchange-hub">
+          <span class="icon is-large">
+            <i class="fa-brands fa-github fa-4x"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+  </footer>
+</html>
