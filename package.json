@@ -1,0 +1,38 @@
+{
+  "name": "local-exchange-hub",
+  "version": "0.0.1",
+  "description": "Exchange Goods Locally",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js",
+    "lint": "npx eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkutsel/local-exchange-hub"
+  },
+  "author": "Roman Kutsel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkutsel/local-exchange-hub"
+  },
+  "homepage": "",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.3",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
+  }
+}
