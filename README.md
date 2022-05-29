@@ -139,6 +139,19 @@ git commit -m "your commit message"
 git push origin feature_branch_name
 ```
 
+## Feature Branch Naming Convention
+
+Feature branches need to have a clear format that describes the owner and the inteded purpose. 
+It should follow this format => `[owner]-[purpose]-[description]`. Bellow are a few examples. 
+
+```bash
+# All feature branches need to have a clear format that describes the intent of it.  
+$ git checkout -b rkutsel_feature-add-auth-module # clearly explains who owns it and what is the purpose of it. 
+$ git checkout -b rkutsel_wip-add-support-for-heroku # work in progress that won't be done soon. 
+$ git checkout -b rkutsel_bug-fix-authentication-failure # work in progress that won't be done soon. 
+$ git checkout -b rkutsel_info-auth-module-documentation # work in progress that won't be done soon. 
+```
+
 # References:
 
 [JavaScript: Var, Let, or Const? Which One Should you Use?](https://codeburst.io/javascript-var-let-or-const-which-one-should-you-use-2fd521b050fa)
