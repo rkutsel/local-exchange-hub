@@ -1,0 +1,8 @@
+[
+    {"stage_name": "Availabe"},
+    {"stage_name": "Requested"},
+    {"stage_name": "In Review"},
+    {"stage_name": "Accepted"},
+    {"stage_name": "Declined"},
+    {"stage_name": "Resolved"}
+]
