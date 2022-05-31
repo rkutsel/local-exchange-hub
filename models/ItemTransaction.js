@@ -15,6 +15,7 @@ ItemTransaction.init(
     },
     giver_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id',
@@ -23,6 +24,7 @@ ItemTransaction.init(
     },
     offer_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'offer_item',
         key: 'id',
@@ -31,6 +33,7 @@ ItemTransaction.init(
     },
     stage_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'item_stage',
         key: 'id',

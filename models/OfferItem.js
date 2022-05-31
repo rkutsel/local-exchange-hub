@@ -28,6 +28,10 @@ OfferItem.init(
     offer_description: {
       type: DataTypes.STRING,
       allowNull: false,
+    },    
+    offer_condition: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     offer_date: {
       type: DataTypes.DATE,
