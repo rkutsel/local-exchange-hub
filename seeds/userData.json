@@ -1,6 +1,6 @@
 [
-    {"name":"Jooree Ahn","email":"jooree@gmail.com","password":"password1234"},
-    {"name":"Roman Kutsel","email":"roman@hotmail.com","password":"password1234"},
-    {"name":"Sopie Miller","email":"sophie@aol.com","password":"password1234"},
-    {"name":"Godfrey Bongomin","email":"godfrey@gmail.com","password":"password1234"}
+    {"username":"Jooree Ahn","email":"jooree@gmail.com","password":"password1234"},
+    {"username":"Roman Kutsel","email":"roman@hotmail.com","password":"password1234"},
+    {"username":"Sopie Miller","email":"sophie@aol.com","password":"password1234"},
+    {"username":"Godfrey Bongomin","email":"godfrey@gmail.com","password":"password1234"}
 ]
