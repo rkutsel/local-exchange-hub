@@ -28,6 +28,7 @@ const seedDatabase = async () => {
   await WishItem.bulkCreate(wishItemData);
   await ItemStage.bulkCreate(stageData);
 
+
   process.exit(0);
 };
 
