@@ -1,3 +1,5 @@
-DROP DATABASE IF EXISTS exchangehub_db;
+-- DROP DATABASE
+DROP DATABASE IF EXISTS swap_stuff_db;
 
-CREATE DATABASE exchangehub_db;
+-- CREATE DATABASE
+CREATE DATABASE swap_stuff_db;
