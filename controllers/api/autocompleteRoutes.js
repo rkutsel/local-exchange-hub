@@ -7,6 +7,7 @@ router.post("/", async (req, res) => {
     const offersRaw = await OfferItem.findAll({
       attributes: ["offer_name"],
       [Op.like]: req.body,
+      limit: 5,
     });
 
     res.status(200).json(offersRaw);

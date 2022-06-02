@@ -15,8 +15,8 @@ const autoCompleteJS = new autoComplete({
     },
     keys: ["offer_name"],
     cache: false,
-    threshold: 3,
   },
+  threshold: 2,
   resultItem: {
     highlight: false,
   },
