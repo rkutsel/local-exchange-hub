@@ -1,7 +1,7 @@
 // import important parts of sequelize library
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 // import our database connection from config.js
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
 // Initialize Product model (table) by extending off Sequelize's Model class
 class OfferItem extends Model {}
@@ -28,10 +28,10 @@ OfferItem.init(
     offer_description: {
       type: DataTypes.STRING,
       allowNull: false,
-    },    
+    },
     offer_condition: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false, // needs further review
     },
     offer_date: {
       type: DataTypes.DATE,
@@ -53,26 +53,26 @@ OfferItem.init(
     city_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'city',
-        key: 'id',
+        model: "city",
+        key: "id",
         unique: false,
-      }
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
         unique: false,
-      }
+      },
     },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'category',
-        key: 'id',
+        model: "category",
+        key: "id",
         unique: false,
-      }
+      },
     },
   },
   {
@@ -80,7 +80,7 @@ OfferItem.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'offer_item',
+    modelName: "offer_item",
   }
 );
 

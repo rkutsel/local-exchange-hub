@@ -35,11 +35,25 @@
               >Home</strong></a>
           </div>
           <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="control">
+              <input class="input" type="text" placeholder="Find an item">
+            </div>
+            <div class="control">
+              <a class="button is-info">
+                <strong>Search</strong>
+              </a>
+            </div>
+            </div>
             <div class="navbar-item">
               <div class="buttons">
                 {{#if loggedIn}}
-                  <a id="logout" class="button is-danger"><strong
-                    >Logout</strong></a>
+                  <div class="navbar-item">
+                    <a id="profile" class="button is-info">
+                    <i class="fa-solid fa-user"></i><strong class="ml-2">Profile</strong>
+                    </a>
+                  </div>
+                  <a id="logout" class="button is-danger"><strong>Logout</strong></a>
                 {{else}}
                   <a href="/login" class="button is-info"><strong>Log in</strong></a>
                   <a href="/signup" class="button is-primary"><strong>Sign up</strong></a>
