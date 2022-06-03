@@ -32,6 +32,7 @@ OfferItem.init(
     offer_condition: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "used",
     },
     offer_date: {
       type: DataTypes.DATE,

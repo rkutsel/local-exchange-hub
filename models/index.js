@@ -16,6 +16,15 @@ WishItem.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+// Items belong to Categories
+OfferItem.belongsTo(Category, {
+  foreignKey: 'category_id',
+});
+
+WishItem.belongsTo(Category, {
+  foreignKey: 'category_id',
+});
+
 // Users have many Items
 User.hasMany(OfferItem, {
   foreignKey: 'user_id',

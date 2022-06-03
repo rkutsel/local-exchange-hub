@@ -1,0 +1,37 @@
+<div class="columns is-mobile is-centered mt-6 pt-6">
+  <div class="column is-9">
+    <p class="has-text-centered is-size-1">{{offerDetail.offer_name}}</p>
+    <p class="has-text-centered"><b>{{offerDetail.category.category_name}}</b></p>
+    <form class="box">
+      <div class="field">
+        <div class="control">
+            <p><b>Posted On: </b>{{offerDetail.offer_date}}</p>
+            <p><b>By: </b>{{offerDetail.user.username}}</p>
+            <p><b>Condition: </b>{{offerDetail.offer_condition}}</p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+          <p>{{offerDetail.offer_description}}</p>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div class="field">
+          <label class="label">Message the Owner</label>
+          <div class="control">
+              <textarea
+              id="post-comment"
+              class="textarea"
+              placeholder="Type here..."
+              rows="5"
+              ></textarea>
+            </div>
+        </div>
+        <button class="button is-primary post-article-form">Submit</button>
+    </form>
+  </div>
+
+</div>
+<script src="/js/leaflet.js"></script>
+{{!-- <script src="/js/details.js"></script> --}}
