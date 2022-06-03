@@ -25,6 +25,10 @@ WishItem.belongsTo(Category, {
   foreignKey: 'category_id',
 });
 
+OfferItem.belongsTo(City, {
+  foreignKey: 'city_id',
+});
+
 // Users have many Items
 User.hasMany(OfferItem, {
   foreignKey: 'user_id',

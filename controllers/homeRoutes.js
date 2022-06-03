@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models");
 const { OfferItem } = require("../models");
 const { Category } = require("../models");
+const { City } = require("../models");
 const isAuth = require("../utils/isauth");
 
 router.get("/", async (req, res) => {
@@ -36,6 +37,10 @@ router.get("/details/:id", async (req, res) => {
         {
           model: Category,
           attributes: ["id", "category_name"],
+        },
+        {
+          model: City,
+          attributes: ["id", "latitude", "longitude"],
         },
       ],
     });

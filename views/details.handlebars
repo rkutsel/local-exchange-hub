@@ -5,7 +5,7 @@
     <form class="box">
       <div class="field">
         <div class="control">
-            <p><b>Posted On: </b>{{offerDetail.offer_date}}</p>
+            <p><b>Posted On: </b>{{format_date offerDetail.offer_date}}</p>
             <p><b>By: </b>{{offerDetail.user.username}}</p>
             <p><b>Condition: </b>{{offerDetail.offer_condition}}</p>
         </div>
@@ -16,7 +16,8 @@
           <p>{{offerDetail.offer_description}}</p>
         </div>
       </div>
-      <div id="map"></div>
+    <div id="map" data-lat="{{offerDetail.city.latitude}}" data-lon="{{offerDetail.city.longitude}}">
+          </div>
       <div class="field">
           <label class="label">Message the Owner</label>
           <div class="control">
@@ -31,7 +32,6 @@
         <button class="button is-primary post-article-form">Submit</button>
     </form>
   </div>
-
 </div>
 <script src="/js/leaflet.js"></script>
 {{!-- <script src="/js/details.js"></script> --}}
