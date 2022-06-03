@@ -29,6 +29,13 @@ Comment.init(
         key: "id",
       },
     },
+    offer_id: {
+      type: DataTypes.UUID,
+      references: {
+        model: "offer_item",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
