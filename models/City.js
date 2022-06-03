@@ -17,11 +17,11 @@ City.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    lat: {
+    latitude: {
       type: DataTypes.DECIMAL,
       allowNull: false
     },
-    lon: {
+    longitude: {
       type: DataTypes.DECIMAL,
       allowNull: false
     },
