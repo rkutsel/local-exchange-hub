@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 // create our Location model
 class City extends Model {}
@@ -11,19 +11,19 @@ City.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    lat: {
+    latitude: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: false,
     },
-    lon: {
+    longitude: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: false,
     },
     state: {
       type: DataTypes.STRING,
@@ -35,7 +35,7 @@ City.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'city'
+    modelName: "city",
   }
 );
 
