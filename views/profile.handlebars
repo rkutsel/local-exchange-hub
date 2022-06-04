@@ -1,31 +1,31 @@
-    <section class="hero columns">
-      <div class="hero-body">
-        <div
-          class="column is-two-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2 is-clipped"
-        >
-          <h1 class="is-size-2">Hello, {{username}}!</h1>
-          <p class="is-size-4">Your Email: <span>{{email}}</span></p>
-          <p class="is-size-4">Your Location: <span>{{city}}</span></p>
-        </div>
-        <div
-          class="column is-four-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2"
-        >
-          <a href="/newoffer">
-            <button class="button is-large is-success level-item">
-              Create New Offer
-            </button>
-          </a>
-        </div>
-      </div>
-    </section>
+<section class="hero columns">
+  <div class="hero-body">
+    <div
+      class="column is-two-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2 is-clipped"
+    >
+      <h1 class="is-size-2">Hello, {{username}}!</h1>
+      <p class="is-size-4">Your Email: <span>{{email}}</span></p>
+      <p class="is-size-4">Your Location: <span>{{city}}</span></p>
+    </div>
+    <div
+      class="column is-four-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2"
+    >
+      <a href="/newoffer">
+        <button class="button is-large is-success level-item">
+          Create New Offer
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <section class="columns">
-      {{#if offerItem.length}}
-      <div class="offer-list hero-body">
-        <h3 class="has-text-weight-bold mb-2">My Current Offers</h3>
+<section class="columns">
+  {{#if offer_items.length}}
+    <div class="offer-list hero-body">
+      <h3 class="has-text-weight-bold mb-2">My Current Offers</h3>
 
-        {{#each items as |item|}}
-        <a href="/offer/{{offerItem.id}}" data-id="{{offerItem.id}}">
+      {{#each offer_items}}
+        <a href="/offer/{{offer_items.id}}" data-id="{{offer_items.id}}">
           <div class="box">
             <article class="media">
               <div class="media-left">
@@ -39,22 +39,25 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>{{OfferItem.offer_name}}</strong>
+                    <strong>{{offer_items.offer_name}}</strong>
                     <br />
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aenean efficitur sit amet massa fringilla egestas. Nullam
                     condimentum luctus turpis.
                   </p>
-                  <button class="button is-danger is-light is-small delete" data-id="{{offerItem.id}}">Remove offer from site</button>
+                  <button
+                    class="button is-danger is-light is-small delete"
+                    data-id="{{offer_items.id}}"
+                  >Remove offer from site</button>
                 </div>
               </div>
             </article>
           </div>
         </a>
 
-        {{/each}}
-      </div>
-      {{/if}}
-    </section>
+      {{/each}}
+    </div>
+  {{/if}}
+</section>
 
-    <script src="/js/profile.js"></script>
+<script src="/js/profile.js"></script>
