@@ -18,12 +18,13 @@ City.init(
       allowNull: false,
     },
     latitude: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false
     },
     longitude: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false
+
     },
     state: {
       type: DataTypes.STRING,

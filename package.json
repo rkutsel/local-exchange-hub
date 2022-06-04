@@ -27,6 +27,7 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "firebase": "^9.8.2",
+    "leaflet": "^1.8.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.20.0"
   },
