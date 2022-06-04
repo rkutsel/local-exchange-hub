@@ -29,6 +29,10 @@ OfferItem.belongsTo(City, {
   foreignKey: 'city_id',
 });
 
+Comment.belongsTo(OfferItem, {
+  foreignKey: 'offer_id'
+});
+
 // Users have many Items
 User.hasMany(OfferItem, {
   foreignKey: 'user_id',
@@ -54,6 +58,11 @@ Category.hasMany(OfferItem, {
 
 Category.hasMany(WishItem, {
   foreignKey: 'category_id',
+  onDelete: 'CASCADE',
+});
+
+OfferItem.hasMany(Comment, {
+  foreignKey: 'offer_id',
   onDelete: 'CASCADE',
 });
 
