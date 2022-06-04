@@ -7,7 +7,15 @@ const isAuth = require("../utils/isauth");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("all", { loggedIn: req.session.loggedIn });
+    const offferitems = await OfferItem.findAll();
+    const results = offferitems.map((offeritem) =>
+      offeritem.get({ plain: true })
+    );
+
+    res.render("all", {
+      results,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -46,7 +54,7 @@ router.get("/details/:id", async (req, res) => {
     });
 
     const offerDetail = offerData.get({ plain: true });
-    console.log(offerDetail)
+    console.log(offerDetail);
     res.render("details", {
       offerDetail,
     });
