@@ -1,10 +1,18 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, OfferItem } = require("../models");
 const isAuth = require("../utils/isauth");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("all", { loggedIn: req.session.loggedIn });
+    const offferitems = await OfferItem.findAll();
+    const results = offferitems.map((offeritem) =>
+      offeritem.get({ plain: true })
+    );
+
+    res.render("all", {
+      results,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
