@@ -8,14 +8,24 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.css"
     />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-    crossorigin=""></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"
+    ></script>
     <script defer src="/js/all.js"></script>
   </head>
   <body>
@@ -44,30 +54,41 @@
               >Home</strong></a>
           </div>
           <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="control">
-              <input id="autoComplete" class="input search-form" type="text" placeholder="Find an item">
-            </div>
-            <div class="control">
-              <a class="button is-info">
-                <strong>Search</strong>
-              </a>
-             <script src="/js/autocomplete.js"></script>
-            </div>
+            <div class="navbar-item">
+              <div class="control">
+                <input
+                  id="autoComplete"
+                  class="input search-form"
+                  type="text"
+                  placeholder="Find an item"
+                />
+              </div>
+              <div class="control">
+                <a class="button is-info">
+                  <strong>Search</strong>
+                </a>
+                <script src="/js/autocomplete.js"></script>
+              </div>
             </div>
             <div class="navbar-item">
               <div class="buttons">
                 {{#if loggedIn}}
                   <div class="navbar-item">
-                    <a id="profile" class="button is-info">
-                    <i class="fa-solid fa-user"></i><strong class="ml-2">Profile</strong>
+                    <a id="profile" class="button is-info" href="/profile">
+                      <i class="fa-solid fa-user"></i><strong
+                        class="ml-2"
+                      >Profile</strong>
                     </a>
                   </div>
-                  <a id="logout" class="button is-danger"><strong>Logout</strong></a>
+                  <a id="logout" class="button is-danger"><strong
+                    >Logout</strong></a>
                 {{else}}
                   <a href="/login" class="button is-info"><strong>Log in</strong></a>
                   <a href="/signup" class="button is-primary"><strong>Sign up</strong></a>
-                  <a href="/details/1" class="button is-primary listing-info"><strong>Listing Test Button</strong></a>
+                  <a
+                    href="/details/1"
+                    class="button is-primary listing-info"
+                  ><strong>Listing Test Button</strong></a>
                 {{/if}}
               </div>
             </div>
@@ -81,7 +102,7 @@
           Local Exchange Hub
         </p>
         <p class="subtitle">
-          Trade goods or give them away for free  
+          Trade goods or give them away for free
         </p>
       </div>
     </section>

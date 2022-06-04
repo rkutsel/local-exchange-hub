@@ -1,8 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../models");
-const { OfferItem } = require("../models");
-const { Category } = require("../models");
-const { City } = require("../models");
+const { User, OfferItem, Category, City } = require("../models");
 const isAuth = require("../utils/isauth");
 
 router.get("/", async (req, res) => {
@@ -60,6 +57,25 @@ router.get("/details/:id", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get("/profile", isAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: OfferItem }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    console.log(user);
+
+    res.render("profile", {
+      ...user,
+      loggedIn: true,
+    });
+  } catch (err) {
     res.status(500).json(err);
   }
 });
