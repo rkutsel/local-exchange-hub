@@ -1,69 +1,70 @@
 // import models
-const User = require('./User');
-const Category = require('./Category');
-const City = require('./City');
-const OfferItem = require('./OfferItem');
-const WishItem = require('./WishItem');
-const ItemStage = require('./ItemStage');
-const ItemTransaction = require('./ItemTransaction');
+const User = require("./User");
+const Category = require("./Category");
+const City = require("./City");
+const Comment = require("./Comment");
+const OfferItem = require("./OfferItem");
+const WishItem = require("./WishItem");
+const ItemStage = require("./ItemStage");
+const ItemTransaction = require("./ItemTransaction");
 
 // Items belong to Users
 OfferItem.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
 
 WishItem.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
 
 // Items belong to Categories
 OfferItem.belongsTo(Category, {
-  foreignKey: 'category_id',
+  foreignKey: "category_id",
 });
 
 WishItem.belongsTo(Category, {
-  foreignKey: 'category_id',
+  foreignKey: "category_id",
 });
 
 OfferItem.belongsTo(City, {
-  foreignKey: 'city_id',
+  foreignKey: "city_id",
 });
 
 Comment.belongsTo(OfferItem, {
-  foreignKey: 'offer_id'
+  foreignKey: "offer_id",
 });
 
 // Users have many Items
 User.hasMany(OfferItem, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
 User.hasMany(WishItem, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
 // Locations have many Offer Items
 City.hasMany(OfferItem, {
-  foreignKey: 'city_id',
-  onDelete: 'CASCADE',
+  foreignKey: "city_id",
+  onDelete: "CASCADE",
 });
 
 // Categories have many Items
 Category.hasMany(OfferItem, {
-  foreignKey: 'category_id',
-  onDelete: 'CASCADE',
+  foreignKey: "category_id",
+  onDelete: "CASCADE",
 });
 
 Category.hasMany(WishItem, {
-  foreignKey: 'category_id',
-  onDelete: 'CASCADE',
+  foreignKey: "category_id",
+  onDelete: "CASCADE",
 });
 
 OfferItem.hasMany(Comment, {
-  foreignKey: 'offer_id',
-  onDelete: 'CASCADE',
+  foreignKey: "offer_id",
+  onDelete: "CASCADE",
 });
 
 // OfferItems belongToMany ItemStages (through ItemTransaction)
@@ -72,7 +73,7 @@ OfferItem.belongsToMany(ItemStage, {
     model: ItemTransaction,
     unique: false,
   },
-  foreignKey: 'offer_id'
+  foreignKey: "offer_id",
 });
 
 // ItemStage belongToMany OfferItems (through ItemTransaction)
@@ -81,15 +82,15 @@ ItemStage.belongsToMany(OfferItem, {
     model: ItemTransaction,
     unique: false,
   },
-  foreignKey: 'stage_id'
+  foreignKey: "stage_id",
 });
 
 module.exports = {
-User,
-Category,
-City,
-OfferItem,
-WishItem,
-ItemStage,
-ItemTransaction
+  User,
+  Category,
+  City,
+  OfferItem,
+  WishItem,
+  ItemStage,
+  ItemTransaction,
 };
