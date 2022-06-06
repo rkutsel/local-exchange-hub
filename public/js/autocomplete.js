@@ -13,18 +13,24 @@ const autoCompleteJS = new autoComplete({
         return error;
       }
     },
-    keys: ["offer_name"],
+    keys: ["city"],
     cache: false,
   },
-  threshold: 2,
+  threshold: 3,
   resultItem: {
     highlight: false,
+  },
+  resultItem: {
+    tag: "li",
+    class: "has-text-info",
+    selected: "autoComplete_selected",
+    highlight: "has-text-danger",
   },
   events: {
     input: {
       selection: (event) => {
         const selection = event.detail.selection.value;
-        autoCompleteJS.input.value = selection.offer_name;
+        autoCompleteJS.input.value = `${selection.city} ${selection.state}`;
       },
     },
   },
