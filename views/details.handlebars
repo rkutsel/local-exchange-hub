@@ -1,36 +1,54 @@
 <div class="columns is-mobile is-centered mt-6 pt-6">
   <div class="column is-9">
-    <p class="has-text-centered is-size-1">{{offerDetail.offer_name}}</p>
-    <p class="has-text-centered"><b>{{offerDetail.category.category_name}}</b></p>
+    <p class="has-text-centered is-size-1">{{offer_name}}</p>
+    <p class="has-text-centered"><b>{{category.category_name}}</b></p>
     <form class="box">
       <div class="field">
         <div class="control">
-            <p><b>Posted On: </b>{{format_date offerDetail.offer_date}}</p>
-            <p><b>By: </b>{{offerDetail.user.username}}</p>
-            <p><b>Condition: </b>{{offerDetail.offer_condition}}</p>
+            <p><b>Posted On: </b>{{format_date offer_date}}</p>
+            <p><b>By: </b>{{user.username}}</p>
+            <p><b>Condition: </b>{{offer_condition}}</p>
         </div>
       </div>
       <div class="field">
         <label class="label">Description</label>
         <div class="control">
-          <p>{{offerDetail.offer_description}}</p>
+          <p>{{offer_description}}</p>
         </div>
       </div>
-      <div id="map" data-lat="{{offerDetail.city.latitude}}" data-lon="{{offerDetail.city.longitude}}"></div>
+      <div id="map" data-lat="{{city.latitude}}" data-lon="{{city.longitude}}"></div>
+      {{#if comments.length}}
+      <div class="col comment-list">
+        <h3><b>Comments</b></h3>
+        {{#each comments as |comment|}}
+        <div class="box row">
+          <div class="col">
+            <p><b>{{comment.user.username}}, {{format_date comment.date_created}}:</b></p>
+            <p><i>{{comment.comment}}</i></p>
+          </div>
+          {{#if (is_equal comment.user_id sessionUserId)}}
+            <div class="col">
+              <button id ="edit-comment-btn" class="btn btn-sm btn-danger" data-eid="{{comment.id}}">Edit</button>
+              <button id ="delete-comment-btn" class="btn btn-sm btn-danger" data-id="{{comment.id}}">Delete</button>
+            </div>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
       <div class="field">
-          <label class="label">Comment</label>
+          <label class="label">Leave a Comment</label>
           <div class="control">
               <textarea
-              id="post-comment"
+              id="new-comment"
               class="textarea"
-              placeholder="Type here..."
               rows="5"
-              ></textarea>
-            </div>
+              >{{oldComment.comment}}</textarea>
         </div>
-        <button class="button is-primary post-article-form">Submit</button>
+      </div>
+      <button class="button is-primary new-comment-form" type="submit" data-cid="{{oldComment.id}}">Submit</button>
     </form>
   </div>
 </div>
+<script src="/js/comment.js"></script>
 <script src="/js/leaflet.js"></script>
-{{!-- <script src="/js/details.js"></script> --}}
