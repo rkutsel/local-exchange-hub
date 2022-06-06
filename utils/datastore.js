@@ -42,6 +42,6 @@ async function getAllUrls() {
   }
 }
 
-getAllUrls().then((el) => console.log(el));
+// getAllUrls().then((el) => console.log(el));
 
 module.exports = { getOneUrl, getAllUrls };
