@@ -17,8 +17,8 @@
           </div>
 
           {{!-- free_offer --}}
-          <div class="select-area my-4">
-            <label >is this offer free?</label>
+          <div class="select select-area my-4">
+            {{!-- <label >is this offer free?</label> --}}
             <select name="offer" id="offer">
               <option value="is this offer free?">select offer type</option>
               <option value="yes">Yes</option>
@@ -34,20 +34,20 @@
 
           {{!-- catergory --}}
           {{#if catergories.length}}
-          <div class="select-area my-4">
-            <label for="">Select category</label>
+          <div class="select select-area my-4">
+            {{!-- <label for="">Select category</label> --}}
             <select name="Catergories" id="Catergories">
               <option value="Select category">Select category</option>
               {{#each}}
-              <option value="Shirts">Shirts</option>
+              <option value="{{Shirts}}">Shirts</option>
               {{/each}}
             </select>
           </div>
           {{/if}}
 
          {{!-- offer_condition --}}
-          <div class="select-area my-4">
-            <label>Offer condition</label>
+          <div class="select select-area my-4">
+            {{!-- <label>Offer condition</label> --}}
             <select name="offer-condition" id="offer-condition">
               <option value="condition">Offer condition</option>
               <option value="Used">Used</option>
@@ -57,7 +57,7 @@
 
           <div class="field my-4">
             <div class="control">
-              <label>Street Address</label>
+              {{!-- <label>Street Address</label> --}}
               <textarea id="street-address" class="textarea" placeholder="Street Address" rows="3"></textarea>
             </div>
           </div>
@@ -70,8 +70,8 @@
 
         {{!-- city list --}}
         {{#if citylists.length}}
-         <div class="select-area my-4">
-            <label for="">Select the City</label>
+         <div class="select select-area my-4">
+            {{!-- <label for="">Select the City</label> --}}
             <select name="City" id="City">
               <option value="Select city">Select category</option>
               {{#each}}

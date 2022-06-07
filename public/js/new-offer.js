@@ -10,10 +10,10 @@ const newOfferHandler = async (event) => {
     const response = await fetch("/api/offer_items", {
       method: "POST",
       body: JSON.stringify({
-        itemName,
-        offerFree,
-        description,
-        streetAddress,
+        offer_name: itemName,
+        free_offer: offerFree,
+        offer_description: description,
+        street_address: streetAddress,
         zipcode,
       }),
       headers: { "Content-Type": "application/json" },

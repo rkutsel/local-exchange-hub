@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { OfferItem } = require("../../models");
 const isAuth = require("../../utils/auth");
 
+//
 router.post("/", isAuth, async (req, res) => {
   try {
     const newOffer = await OfferItem.create({
@@ -33,3 +34,5 @@ router.delete("/:id", isAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
