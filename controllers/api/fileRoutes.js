@@ -1,32 +1,19 @@
 const router = require("express").Router();
-const firebase = require("../../config/firebase");
-const url = require("../../utils/datastore");
+const file = require("../../utils/datastore");
 const upload = require("../../utils/files");
 
-router.post("/upload", upload.single("file"), (req, res) => {
+router.post("/upload", upload.single("file"), async (req, res) => {
   console.log(req.file);
   if (!req.file) {
     res.status(400).send("Error: File Not Selected.");
   } else {
-    const blob = firebase.bucket.file(req.file.originalname);
+    const fileName = req.file.originalname;
+    const fileBuffer = req.file.buffer;
 
-    const blobWriter = blob.createWriteStream({
-      metadata: {
-        contentType: req.file.mimetype,
-      },
-    });
-
-    blobWriter.on("finish", async () => {
-      const publicUrl = await url.getOneUrl(blob.name);
-      console.log(publicUrl);
+    await file.uploadFile(fileName, fileBuffer).then((url) => {
+      console.log(url);
       res.status(200).send("Uploaded Successfully.");
     });
-
-    blobWriter.on("error", (err) => {
-      console.log(err);
-    });
-
-    blobWriter.end(req.file.buffer);
   }
 });
 
