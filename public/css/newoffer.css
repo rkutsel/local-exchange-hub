@@ -1,0 +1,56 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+} */
+
+.custom-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 100vh; */
+    /* background: #5256ad; */
+   
+
+}
+
+.card-custom h3 {
+    background-color: blue;
+    color: white;
+    font-size: 25px;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font-size: 25px;
+}
+
+.select-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-area select {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.button-offer {
+    width: 100%;
+    background-color: blue;
+    /* background-color: #34B3F1; */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 5px;
+    font-size: 25px;
+    transition: 0.2s;
+}
+
+/* .button-offer:hover {
+    background-color: blue;
+} */
+.card-custom {
+    background-color: #34B3F1;
+    color: #fff;
+}
+
