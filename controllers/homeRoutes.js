@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, OfferItem, Category, City } = require("../models");
+const { User, OfferItem, Category, City, Comment } = require("../models");
 const isAuth = require("../utils/isauth");
 
 router.get("/", async (req, res) => {
@@ -31,8 +31,9 @@ router.get("/login", (req, res) => {
   res.render("auth", { isLogin });
 });
 
-router.get("/details/:id", async (req, res) => {
+router.get("/details/:id", isAuth, async (req, res) => {
   try {
+    const sessionUserId = req.session.user_id;
     const offerData = await OfferItem.findByPk(req.params.id, {
       include: [
         {
@@ -47,16 +48,76 @@ router.get("/details/:id", async (req, res) => {
           model: City,
           attributes: ["id", "latitude", "longitude"],
         },
+        {
+          model: Comment,
+          attributes: ['id', 'date_created', 'comment', 'user_id'],
+          include: [
+            {
+              model: User,
+              attributes: ['username'],
+          }
+          ]
+        },
       ],
     });
 
     const offerDetail = offerData.get({ plain: true });
     console.log(offerDetail);
+    console.log(sessionUserId);
     res.render("details", {
-      offerDetail,
+      ...offerDetail, 
+      sessionUserId,
     });
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
+  try {
+    const oldCommentData = await Comment.findByPk(req.params.eid, {
+      attributes: ["id", "comment"]
+    });
+
+    const oldComment = oldCommentData.get({ plain: true });
+    const sessionUserId = req.session.user_id;
+
+    const offerData = await OfferItem.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "category_name"],
+        },
+        {
+          model: City,
+          attributes: ["id", "latitude", "longitude"],
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'date_created', 'comment', 'user_id'],
+          include: [
+            {
+              model: User,
+              attributes: ['username'],
+          }
+          ]
+        },
+      ],
+    });
+
+    const offerDetail = offerData.get({ plain: true });
+
+    console.log(oldComment);
+    res.render("details", {
+      oldComment,
+      ...offerDetail
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
