@@ -30,6 +30,10 @@ OfferItem.belongsTo(City, {
   foreignKey: "city_id",
 });
 
+Comment.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
 Comment.belongsTo(OfferItem, {
   foreignKey: "offer_id",
 });
@@ -41,6 +45,11 @@ User.hasMany(OfferItem, {
 });
 
 User.hasMany(WishItem, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+User.hasMany(Comment, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
@@ -93,4 +102,5 @@ module.exports = {
   WishItem,
   ItemStage,
   ItemTransaction,
+  Comment,
 };
