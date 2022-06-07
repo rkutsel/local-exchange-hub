@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 
     res.render("all", {
       results,
-      // loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -50,13 +50,13 @@ router.get("/details/:id", isAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'date_created', 'comment', 'user_id'],
+          attributes: ["id", "date_created", "comment", "user_id"],
           include: [
             {
               model: User,
-              attributes: ['username'],
-          }
-          ]
+              attributes: ["username"],
+            },
+          ],
         },
       ],
     });
@@ -65,7 +65,7 @@ router.get("/details/:id", isAuth, async (req, res) => {
     console.log(offerDetail);
     console.log(sessionUserId);
     res.render("details", {
-      ...offerDetail, 
+      ...offerDetail,
       sessionUserId,
     });
   } catch (err) {
@@ -76,7 +76,7 @@ router.get("/details/:id", isAuth, async (req, res) => {
 router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
   try {
     const oldCommentData = await Comment.findByPk(req.params.eid, {
-      attributes: ["id", "comment"]
+      attributes: ["id", "comment"],
     });
 
     const oldComment = oldCommentData.get({ plain: true });
@@ -98,13 +98,13 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'date_created', 'comment', 'user_id'],
+          attributes: ["id", "date_created", "comment", "user_id"],
           include: [
             {
               model: User,
-              attributes: ['username'],
-          }
-          ]
+              attributes: ["username"],
+            },
+          ],
         },
       ],
     });
@@ -114,7 +114,7 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
     console.log(oldComment);
     res.render("details", {
       oldComment,
-      ...offerDetail
+      ...offerDetail,
     });
   } catch (err) {
     res.status(500).json(err);
