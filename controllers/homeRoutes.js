@@ -61,15 +61,28 @@ router.get("/details/:id", async (req, res) => {
 });
 
 router.get("/profile", isAuth, async (req, res) => {
+  console.log("hello", req.session.user_id);
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: OfferItem }],
+      include: [
+        {
+          model: OfferItem,
+          attributes: [
+            "id",
+            "free_offer",
+            "offer_name",
+            "offer_description",
+            "offer_condition",
+          ],
+        },
+      ],
     });
+    console.log(userData);
 
     const user = userData.get({ plain: true });
 
-    console.log(user);
+    console.log(user, "hello world");
 
     res.render("profile", {
       ...user,
