@@ -5,7 +5,8 @@ const {
   City,
   OfferItem,
   WishItem,
-  ItemStage} = require('../models');
+  ItemStage,
+  Comment} = require('../models');
 
 const userData = require('./userData.json');
 const cityData = require('./cityData.json');
@@ -13,6 +14,7 @@ const categoryData = require('./categoryData.json');
 const stageData = require('./stageData.json');
 const offerItemData = require('./offerItemData.json');
 const wishItemData = require('./wishItemData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -27,7 +29,7 @@ const seedDatabase = async () => {
   await OfferItem.bulkCreate(offerItemData);
   await WishItem.bulkCreate(wishItemData);
   await ItemStage.bulkCreate(stageData);
-
+  await Comment.bulkCreate(commentData);
 
   process.exit(0);
 };

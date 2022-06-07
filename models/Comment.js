@@ -13,15 +13,12 @@ Comment.init(
     },
     comment: {
       type: DataTypes.TEXT,
-      allowNull: false,
       unique: false,
-      validate: {
-        len: [2],
-      },
     },
-    date: {
-      type: DataTypes.STRING,
+    date_created: {
+      type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,

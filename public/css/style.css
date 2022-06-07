@@ -1,8 +1,54 @@
-#map { 
-    height: 380px; 
-    margin: 10px;
+:root {
+  --darkgreen: #283618;
+  --green: #606c38;
+  --neutral: #bc6c25;
+  --light: #fefae0;
+}
+
+#map {
+  height: 380px;
+  margin: 10px;
 }
 
 .box {
-    margin: 10px;
+  margin: 10px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* need to fix this, class is not applied to the right element */
+.custom-navbar {
+  background-color: var(--darkgreen);
+  color: var(--light);
+}
+
+.custom-hero {
+  background-color: var(--green);
+}
+
+.neutral-btn {
+  background-color: var(--neutral);
+  border: 0px;
+}
+
+.green-btn {
+  background-color: var(--green);
+  border: 0px;
+}
+
+.drkgreen-btn {
+  background-color: var(--darkgreen);
+  border: 0px;
+}
+
+.light-btn {
+  background-color: var(--light);
+  border: 0px;
+}
+
+.red-btn {
+  background-color: #ae0000;
+  border: 0px;
 }

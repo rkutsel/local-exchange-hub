@@ -1,7 +1,7 @@
 <section class="hero columns">
   <div class="hero-body">
     <div
-      class="column is-two-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2 is-clipped"
+      class="column is-two-fifths-mobile is-half-tablet is-half-desktop is-half-widescreen is-narrow-fullhd m-2 is-clipped"
     >
       <h1 class="is-size-2">Hello, {{username}}!</h1>
       <p class="is-size-4">Your Email: <span>{{email}}</span></p>
@@ -11,7 +11,7 @@
       class="column is-four-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2"
     >
       <a href="/newoffer">
-        <button class="button is-large is-success level-item">
+        <button class="button is-large neutral-btn has-text-white level-item">
           Create New Offer
         </button>
       </a>
@@ -25,7 +25,7 @@
       <h3 class="has-text-weight-bold mb-2">My Current Offers</h3>
 
       {{#each offer_items}}
-        <a href="/offer/{{offer_items.id}}" data-id="{{offer_items.id}}">
+        <a href="/offers/{{this.id}}" data-id="{{this.id}}">
           <div class="box">
             <article class="media">
               <div class="media-left">
@@ -39,15 +39,24 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>{{offer_items.offer_name}}</strong>
+                    <strong>{{this.offer_name}}</strong>
                     <br />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean efficitur sit amet massa fringilla egestas. Nullam
-                    condimentum luctus turpis.
+                    {{this.offer_description}}
                   </p>
+                  <ul>
+                    <li>
+                      Item Condition:
+                      {{this.offer_condition}}
+                    </li>
+                    {{#if this.free_offer}}
+                      <li>
+                        This item is being offered for free
+                      </li>
+                    {{/if}}
+                  </ul>
                   <button
-                    class="button is-danger is-light is-small delete"
-                    data-id="{{offer_items.id}}"
+                    class="button is-small red-btn delbtn has-text-white"
+                    data-id="{{this.id}}"
                   >Remove offer from site</button>
                 </div>
               </div>
