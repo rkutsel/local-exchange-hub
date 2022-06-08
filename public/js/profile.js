@@ -17,6 +17,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document.querySelectorAll(".delbtn").forEach((item) => {
+document.querySelectorAll(".dltbtn").forEach((item) => {
   item.addEventListener("click", delButtonHandler);
 });

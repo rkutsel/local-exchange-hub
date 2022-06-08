@@ -25,7 +25,7 @@
       <h3 class="has-text-weight-bold mb-2">My Current Offers</h3>
 
       {{#each offer_items}}
-        <a href="/offers/{{this.id}}" data-id="{{this.id}}">
+        <a href="/details/{{this.id}}" data-id="{{this.id}}">
           <div class="box">
             <article class="media">
               <div class="media-left">
@@ -55,7 +55,7 @@
                     {{/if}}
                   </ul>
                   <button
-                    class="button is-small red-btn delbtn has-text-white"
+                    class="button is-small red-btn dltbtn has-text-white"
                     data-id="{{this.id}}"
                   >Remove offer from site</button>
                 </div>
