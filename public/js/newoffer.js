@@ -22,7 +22,6 @@ const newOfferHandler = async (event) => {
         },
       });
       if (response.ok) {
-        // response.text().then((el) => console.log(el));
         return response.text().then((el) => el);
       } else {
         alert("Error: Failed to upload a file. Please try again.");
@@ -45,7 +44,7 @@ const newOfferHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      // document.location.replace("/profile");
+      document.location.replace("/profile");
     } else {
       alert("Failed to post.");
     }
