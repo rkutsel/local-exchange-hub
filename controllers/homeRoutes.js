@@ -164,4 +164,29 @@ router.get("/newoffer", isAuth, async (req, res) => {
   }
 });
 
+router.get("/offerposting", async (req, res) => {
+  try {
+    const categoryData = await Category.findAll({
+      attributes: ["id", "category_name"]
+    });
+    const categories = categoryData.map((categoryData) =>
+    categoryData.get({ plain: true })
+    );
+
+    const cityData = await City.findAll({
+      attributes: ["id", "city"]
+    });
+    const cities = cityData.map((cityData) =>
+    cityData.get({ plain: true })
+    );
+
+    res.render("offeritem", {
+      categories,
+      cities,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
