@@ -6,14 +6,16 @@ const newOfferHandler = async (event) => {
   const streetAddress = document.querySelector("#street-address").value.trim();
   const cityName = document.querySelector("#city-name").value.trim();
   const zipCode = document.querySelector("#zip-code");
-  if (itemName && offerFree && description && streetAddress && zipCode) {
-    const response = await fetch("/api/offer_items", {
+  const itemNew = document.querySelector("#item-new").value;
+
+  if (itemName && description && streetAddress && cityName && zipCode) {
+    const response = await fetch("/api/offers", {
       method: "POST",
       body: JSON.stringify({
         offer_name: itemName,
-        free_offer: offerFree,
         offer_description: description,
         street_address: streetAddress,
+        city_name: cityName,
         zipCode,
       }),
       headers: { "Content-Type": "application/json" },
@@ -42,5 +44,5 @@ const newOfferHandler = async (event) => {
 };
 
 document
-  .querySelector(".button-offer")
+  .querySelector("#submit-offer")
   .addEventListener("click", newOfferHandler);
