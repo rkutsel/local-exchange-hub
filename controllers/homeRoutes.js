@@ -154,4 +154,14 @@ router.get("/profile", isAuth, async (req, res) => {
   }
 });
 
+router.get("/newoffer", isAuth, async (req, res) => {
+  try {
+    res.render("offeritem", {
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
