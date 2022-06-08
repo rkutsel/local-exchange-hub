@@ -12,7 +12,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 
     await file.uploadFile(fileName, fileBuffer).then((url) => {
       console.log(url);
-      res.status(200).send("Uploaded Successfully.");
+      res.status(200).send(url);
     });
   }
 });

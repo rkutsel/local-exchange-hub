@@ -5,10 +5,33 @@ const newOfferHandler = async (event) => {
   const description = document.querySelector("#description").value.trim();
   const streetAddress = document.querySelector("#street-address").value.trim();
   const cityName = document.querySelector("#city-name").value.trim();
-  const zipCode = document.querySelector("#zip-code");
+  const zipCode = document.querySelector("#zip-code").value.trim();
   const itemNew = document.querySelector("#item-new").value;
+  const file = document.querySelector("#file-name");
+  let formData = new FormData();
+  formData.append("file", file.files[0]);
 
-  if (itemName && description && streetAddress && cityName && zipCode) {
+  async function fetchUrl() {
+    if (formData) {
+      const response = await fetch("/api/files/upload", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Connection: "keep-alive",
+          Accept: "*/*",
+        },
+      });
+      if (response.ok) {
+        // response.text().then((el) => console.log(el));
+        return response.text().then((el) => el);
+      } else {
+        alert("Error: Failed to upload a file. Please try again.");
+        return "GOOD";
+      }
+    }
+  }
+
+  if (itemName && description && streetAddress && cityName && zipCode && file) {
     const response = await fetch("/api/offers", {
       method: "POST",
       body: JSON.stringify({
@@ -16,29 +39,15 @@ const newOfferHandler = async (event) => {
         offer_description: description,
         street_address: streetAddress,
         city_name: cityName,
-        zipCode,
+        zipcode: zipCode,
+        file: await fetchUrl(),
       }),
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/profile");
+      // document.location.replace("/profile");
     } else {
       alert("Failed to post.");
-    }
-  }
-  const file = document.querySelector("#file-name");
-  let formData = new FormData();
-  formData.append("file", file.files[0]);
-
-  if (formData) {
-    const response = await fetch("/api/files/upload", {
-      method: "POST",
-      body: formData,
-    });
-    if (response.ok) {
-      // document.location.replace(`/`);
-    } else {
-      alert("Error: Failed to upload a file. Please try again.");
     }
   }
 };

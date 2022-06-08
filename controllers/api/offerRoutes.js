@@ -16,7 +16,7 @@ router.post("/", isAuth, async (req, res) => {
     //   res.status(404).json({ message: "No offer found with this id!" });
     //   return;
     // }
-    // res.status(200).json(offerData);
+    res.status(200).json(req.body);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
