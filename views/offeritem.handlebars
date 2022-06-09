@@ -35,14 +35,19 @@
       </div>
     </div>
     <br>
+
+    {{#if categories.length}}
     <div class="field">
         <div class="select">
-          <select>
+          <select id="category">
             <option>Choose category</option>
-            <option>Shirts</option>
+            {{#each categories as |category|}}
+            <option value="{{category.id}}">{{category.category_name}}</option>
+            {{/each}}
           </select>
       </div>
     </div>
+    {{/if}}
 
     <div class="field">
       <div class="control">

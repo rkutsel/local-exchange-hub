@@ -7,6 +7,7 @@ const newOfferHandler = async (event) => {
   const cityName = document.querySelector("#city-name").value.trim();
   const zipCode = document.querySelector("#zip-code").value.trim();
   const itemNew = document.querySelector("#item-new").value;
+  const categoryId = document.querySelector("#category").value;
   const file = document.querySelector("#file-name");
   let formData = new FormData();
   formData.append("file", file.files[0]);
