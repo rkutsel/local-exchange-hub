@@ -38,7 +38,6 @@ const autoCompleteJS = new autoComplete({
 
 const searchCity = async (event) => {
   event.preventDefault();
-  console.log(autoCompleteJS.input.value);
   try {
     const source = await fetch(
       `/api/autocomplete/city/${autoCompleteJS.input.value}`,

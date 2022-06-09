@@ -37,7 +37,6 @@ OfferItem.init(
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "used",
-      // allowNull: false, // needs further review
     },
     offer_date: {
       type: DataTypes.DATE,
