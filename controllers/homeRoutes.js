@@ -130,7 +130,6 @@ router.get("/profile", isAuth, async (req, res) => {
           attributes: [
             "id",
             "url_path",
-            "free_offer",
             "offer_name",
             "offer_description",
             "offer_condition",
