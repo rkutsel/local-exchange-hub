@@ -67,6 +67,7 @@ router.get("/details/:id", isAuth, async (req, res) => {
     res.render("details", {
       ...offerDetail,
       sessionUserId,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -115,6 +116,7 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
     res.render("details", {
       oldComment,
       ...offerDetail,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
