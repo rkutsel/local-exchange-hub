@@ -25,22 +25,22 @@
         <div class="col comment-list">
           <h3><b>Comments</b></h3>
           {{#each comments as |comment|}}
-            <div class="box row">
-              <div class="col">
+            <div class="box p-0 columns">
+              <div class="column is-four-fifths">
                 <p><b>{{comment.user.full_name}},
                     {{format_date comment.date_created}}:</b></p>
                 <p><i>{{comment.comment}}</i></p>
               </div>
               {{#if (is_equal comment.user_id sessionUserId)}}
-                <div class="col">
+                <div class="column">
                   <button
                     id="edit-comment-btn"
-                    class="btn btn-sm btn-danger"
+                    class="button is-small is-warning is-light"
                     data-eid="{{comment.id}}"
                   >Edit</button>
                   <button
                     id="delete-comment-btn"
-                    class="btn btn-sm btn-danger"
+                    class="button is-small is-danger is-light"
                     data-id="{{comment.id}}"
                   >Delete</button>
                 </div>
@@ -49,8 +49,8 @@
           {{/each}}
         </div>
       {{/if}}
+      <h3 class="pt-5"><b>Leave a Comment</b></h3>
       <div class="field">
-        <label class="label">Leave a Comment</label>
         <div class="control">
           <textarea
             id="new-comment"
