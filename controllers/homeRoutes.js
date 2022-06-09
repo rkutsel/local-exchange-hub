@@ -38,7 +38,7 @@ router.get("/details/:id", isAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["id", "username"],
+          attributes: ["id", "full_name"],
         },
         {
           model: Category,
@@ -54,7 +54,7 @@ router.get("/details/:id", isAuth, async (req, res) => {
           include: [
             {
               model: User,
-              attributes: ["username"],
+              attributes: ["full_name"],
             },
           ],
         },
@@ -86,7 +86,7 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["id", "username"],
+          attributes: ["id", "full_name"],
         },
         {
           model: Category,
@@ -102,7 +102,7 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
           include: [
             {
               model: User,
-              attributes: ["username"],
+              attributes: ["full_name"],
             },
           ],
         },
@@ -131,6 +131,7 @@ router.get("/profile", isAuth, async (req, res) => {
           model: OfferItem,
           attributes: [
             "id",
+            "url_path",
             "free_offer",
             "offer_name",
             "offer_description",
