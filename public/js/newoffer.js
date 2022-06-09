@@ -31,7 +31,15 @@ const newOfferHandler = async (event) => {
     }
   }
 
-  if (itemName && description && streetAddress && cityName && zipCode && file) {
+  if (
+    itemName &&
+    description &&
+    streetAddress &&
+    cityName &&
+    zipCode &&
+    categoryId &&
+    file
+  ) {
     const response = await fetch("/api/offers", {
       method: "POST",
       body: JSON.stringify({
@@ -40,6 +48,7 @@ const newOfferHandler = async (event) => {
         street_address: streetAddress,
         city_name: cityName,
         zipcode: zipCode,
+        categoryId,
         file: await fetchUrl(),
       }),
       headers: { "Content-Type": "application/json" },
