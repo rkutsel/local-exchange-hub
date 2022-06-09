@@ -9,7 +9,7 @@
 
 - [Installation Instructions](#Installation)
 
-- [Usage with Examples](#Usage)
+- [Usage with Examples](#User Story)
 
 - [Features](#Features)
 
@@ -20,19 +20,59 @@
 - [Tests](#Tests)
 
 ## Description
+When a user navigates to the Local Exchange homepage, they are presented with a random assortment of items that have been posted by other users. In the navigation bar, they can search by city, Login, or Signup.
+When the user clicks the Login button, they are taken to a form where they can enter their credentials, login and access their profile. When they click on the Signup button, they are taken to a form where they enter their name, email, and password.
+When the user starts to enter a city name, the search field auto-completes the text. When the Search button is clicked the user is presented with a listing of offers based on the city they searched.
+Anytime a user clicks on a listing card, they are taken to a detailed page of the offer that includes an image, description, map of the city, and a feature that allows for the user to post, edit, and delete their own comments and view other user’s comments.
+When the user clicks on Profile they are presented with a listing of their own offers that they have posted, where they can delete an offer from the site and create new offers.
+When the user click on the button to create a new offer, they are taken to a form where they enter relevant information about the item being offered, and these items become available on the homepage, search results page, and item details page.
 
 ## Installation Instructions
+NOTE: Make sure you have Node.JS ~v16.14.2 and NPM ~8.11.0 installed. You can quickly check this by running node -v for Node.JS and npm -v for NPM in your terminal. Additionally this application requires mysql ~8.0.29
 
-## Usage with Examples
+Install local dependencies
+Once the above is confirmed, clone the repo git clone git@github.com:rkutsel/local-exchange-hub.git and initialize the database using MySQL. Access the MySQL shell in terminal and run the schema.sql file in the db directory. 
+
+Once the database is initialized, create a storage bucket for the firebase image upload feature by following the below steps. 
+* export apiKey="AIzaSyCXnF7k4jsOwdNXFxjNr3XCcleZkWl5ckQ"
+* export authDomain="local-exchange-hub-db3b9.firebaseapp.com"
+* export projectId="local-exchange-hub-db3b9"
+* export storageBucket="local-exchange-hub-db3b9.appspot.com"
+
+To test that these were installed, run: env | grep apiKey. If installed, the below will appear:
+* apiKey=AIzaSyCXnF7k4jsOwdNXFxjNr3XCcleZkWl5ckQ
+
+Then install the dependencies by running npm i in your terminal. We recommend installing them locally. 
+
+Seed data is also available if you need some initial data to get started quickly. To use this data, run: npm seed
+
+NOTE: this is optional and should only be run if you need some initial data. 
+
+
+## User Story
+As a thrifty consumer that is conscious of waste and its impact on the environment,
+I want to be able to search my local area and find used goods that I need
+I also want to be able to post any of my own used goods that I would like to recycle rather than throw away.
+**ADD SCREENSHOTS HERE**
 
 ## Features
+The current state features include:
+* Autocomplete on search bar
+* User authentication
+* Creating new offers, deleting existing offers
+* Creating new comments, editing or deleting existing comments
+* Map showing the location of an offer item
+* Ability to limit search to city 
+* User's can upload photos of their offer items when creating a new offer
 
 ## Credits
+This project was a collaborative effort between Roman Kutsel, Jooree Ahn, Godfrey Bongomin, and Sophie Miller. 
 
 ## Contribute
+To contribute, follow the installation instructions and open a branch with a descriptive name. Be sure to pull from the develop branch. Use your branch to add features or fix bugs, then submit a Pull Request into the develop branch with an explanation of the changes and any pertinent information. 
 
 ## Tests
-
+There are currently no tests built into this application. 
 
 # UW Bootcamp Opinionated Dev Guide
 

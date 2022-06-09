@@ -3,9 +3,8 @@
     <div
       class="column is-two-fifths-mobile is-half-tablet is-half-desktop is-half-widescreen is-narrow-fullhd m-2 is-clipped"
     >
-      <h1 class="is-size-2">Hello, {{username}}!</h1>
-      <p class="is-size-4">Your Email: <span>{{email}}</span></p>
-      <p class="is-size-4">Your Location: <span>{{city}}</span></p>
+      <h1 class="is-size-2">Hello, {{full_name}}!</h1>
+      <p class="is-size-4">Your Account Email: <span>{{email}}</span></p>
     </div>
     <div
       class="column is-four-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2"
@@ -30,10 +29,7 @@
             <article class="media">
               <div class="media-left">
                 <figure class="image is-96x96">
-                  <img
-                    src="https://bulma.io/images/placeholders/128x128.png"
-                    alt="Image"
-                  />
+                  <img src={{this.url_path}} alt="Image" />
                 </figure>
               </div>
               <div class="media-content">
