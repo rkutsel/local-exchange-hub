@@ -156,8 +156,18 @@ router.get("/profile", isAuth, async (req, res) => {
 
 router.get("/newoffer", isAuth, async (req, res) => {
   try {
+    const categoryData = await Category.findAll({
+      attributes: ["id", "category_name"],
+      order: [["category_name", "ASC"]],
+    });
+
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
+
     res.render("offeritem", {
       loggedIn: true,
+      categories,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -167,18 +177,16 @@ router.get("/newoffer", isAuth, async (req, res) => {
 router.get("/offerposting", async (req, res) => {
   try {
     const categoryData = await Category.findAll({
-      attributes: ["id", "category_name"]
+      attributes: ["id", "category_name"],
     });
     const categories = categoryData.map((categoryData) =>
-    categoryData.get({ plain: true })
+      categoryData.get({ plain: true })
     );
 
     const cityData = await City.findAll({
-      attributes: ["id", "city"]
+      attributes: ["id", "city"],
     });
-    const cities = cityData.map((cityData) =>
-    cityData.get({ plain: true })
-    );
+    const cities = cityData.map((cityData) => cityData.get({ plain: true }));
 
     res.render("offeritem", {
       categories,

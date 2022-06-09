@@ -7,6 +7,7 @@ const newOfferHandler = async (event) => {
   const cityName = document.querySelector("#city-name").value.trim();
   const zipCode = document.querySelector("#zip-code").value.trim();
   const itemNew = document.querySelector("#item-new").value;
+  const categoryId = document.querySelector("#category").value;
   const file = document.querySelector("#file-name");
   let formData = new FormData();
   formData.append("file", file.files[0]);
@@ -30,7 +31,15 @@ const newOfferHandler = async (event) => {
     }
   }
 
-  if (itemName && description && streetAddress && cityName && zipCode && file) {
+  if (
+    itemName &&
+    description &&
+    streetAddress &&
+    cityName &&
+    zipCode &&
+    categoryId &&
+    file
+  ) {
     const response = await fetch("/api/offers", {
       method: "POST",
       body: JSON.stringify({
@@ -39,6 +48,7 @@ const newOfferHandler = async (event) => {
         street_address: streetAddress,
         city_name: cityName,
         zipcode: zipCode,
+        categoryId,
         file: await fetchUrl(),
       }),
       headers: { "Content-Type": "application/json" },
