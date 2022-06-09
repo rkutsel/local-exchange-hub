@@ -27,7 +27,6 @@ router.get("/city/:cityname", async (req, res) => {
       where: { city_id: cityId.id },
     });
     const results = cityNames.map((city) => city.get({ plain: true }));
-    console.log(results, "<<<<");
 
     res.render("all", {
       results,
