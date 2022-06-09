@@ -4,25 +4,14 @@ const Category = require("./Category");
 const City = require("./City");
 const Comment = require("./Comment");
 const OfferItem = require("./OfferItem");
-const WishItem = require("./WishItem");
-const ItemStage = require("./ItemStage");
-const ItemTransaction = require("./ItemTransaction");
 
 // Items belong to Users
 OfferItem.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-WishItem.belongsTo(User, {
-  foreignKey: "user_id",
-});
-
 // Items belong to Categories
 OfferItem.belongsTo(Category, {
-  foreignKey: "category_id",
-});
-
-WishItem.belongsTo(Category, {
   foreignKey: "category_id",
 });
 
@@ -44,11 +33,6 @@ User.hasMany(OfferItem, {
   onDelete: "CASCADE",
 });
 
-User.hasMany(WishItem, {
-  foreignKey: "user_id",
-  onDelete: "CASCADE",
-});
-
 User.hasMany(Comment, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
@@ -66,32 +50,9 @@ Category.hasMany(OfferItem, {
   onDelete: "CASCADE",
 });
 
-Category.hasMany(WishItem, {
-  foreignKey: "category_id",
-  onDelete: "CASCADE",
-});
-
 OfferItem.hasMany(Comment, {
   foreignKey: "offer_id",
   onDelete: "CASCADE",
-});
-
-// OfferItems belongToMany ItemStages (through ItemTransaction)
-OfferItem.belongsToMany(ItemStage, {
-  through: {
-    model: ItemTransaction,
-    unique: false,
-  },
-  foreignKey: "offer_id",
-});
-
-// ItemStage belongToMany OfferItems (through ItemTransaction)
-ItemStage.belongsToMany(OfferItem, {
-  through: {
-    model: ItemTransaction,
-    unique: false,
-  },
-  foreignKey: "stage_id",
 });
 
 module.exports = {
@@ -99,8 +60,5 @@ module.exports = {
   Category,
   City,
   OfferItem,
-  WishItem,
-  ItemStage,
-  ItemTransaction,
   Comment,
 };
