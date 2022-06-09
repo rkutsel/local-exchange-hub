@@ -49,7 +49,7 @@
           <select id="category">
             <option>Choose category</option>
             {{#each categories }}
-            <option id="category-name" value="{{id}}">{{category_name}}</option>
+            <option id="category-name" data-categoryid="{{category_name}}">{{category_name}}</option>
             {{/each}}
           </select>
       </div>
@@ -69,7 +69,7 @@
           <select id="category">
             <option>Choose City</option>
             {{#each cities }}
-            <option id="city-name" value="{{[id, city]}}">{{city}}</option>
+            <option id="city-name" data-cityid="{{id}}" data-cityname="{{city}}">{{city}}</option>
             {{/each}}
           </select>
       </div>

@@ -206,4 +206,21 @@ router.get("/offerposting", async (req, res) => {
   }
 });
 
+router.get("/city/:cityname", async (req, res) => {
+  console.log(cityname);
+  try {
+    // const offferitems = await OfferItem.findAll();
+    // const results = offferitems.map((offeritem) =>
+    //   offeritem.get({ plain: true })
+    // );
+
+    res.render("all", {
+      results,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
