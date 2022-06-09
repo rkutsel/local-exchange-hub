@@ -4,11 +4,15 @@ const newOfferHandler = async (event) => {
   const itemName = document.querySelector("#item-name").value.trim();
   const description = document.querySelector("#description").value.trim();
   const streetAddress = document.querySelector("#street-address").value.trim();
-  const cityName = document.querySelector("#city-name").value.trim();
+  const cityNameSelector = document.querySelector("#city-name");
   const zipCode = document.querySelector("#zip-code").value.trim();
   const itemNew = document.querySelector("#item-new").value;
-  const categoryId = document.querySelector("#category").value;
+  const categorySelector = document.querySelector("#category-name");
   const file = document.querySelector("#file-name");
+  const cityId = cityNameSelector.dataset.cityid;
+  const cityName = cityNameSelector.dataset.cityname;
+  const categoryId = categorySelector.dataset.categoryid;
+
   let formData = new FormData();
   formData.append("file", file.files[0]);
 
@@ -35,6 +39,7 @@ const newOfferHandler = async (event) => {
     itemName &&
     description &&
     streetAddress &&
+    cityId &&
     cityName &&
     zipCode &&
     categoryId &&
@@ -47,8 +52,9 @@ const newOfferHandler = async (event) => {
         offer_description: description,
         street_address: streetAddress,
         city_name: cityName,
+        city_id: cityId,
         zipcode: zipCode,
-        categoryId,
+        category_id: categoryId,
         file: await fetchUrl(),
       }),
       headers: { "Content-Type": "application/json" },

@@ -62,12 +62,9 @@ router.get("/details/:id", isAuth, async (req, res) => {
     });
 
     const offerDetail = offerData.get({ plain: true });
-    console.log(offerDetail);
-    console.log(sessionUserId);
     res.render("details", {
       ...offerDetail,
       sessionUserId,
-      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -112,11 +109,9 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
 
     const offerDetail = offerData.get({ plain: true });
 
-    console.log(oldComment);
     res.render("details", {
       oldComment,
       ...offerDetail,
-      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -124,7 +119,6 @@ router.get("/oldcomment/:id/:eid", isAuth, async (req, res) => {
 });
 
 router.get("/profile", isAuth, async (req, res) => {
-  console.log("hello", req.session.user_id);
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -142,11 +136,8 @@ router.get("/profile", isAuth, async (req, res) => {
         },
       ],
     });
-    console.log(userData);
 
     const user = userData.get({ plain: true });
-
-    console.log(user, "hello world");
 
     res.render("profile", {
       ...user,
@@ -168,9 +159,16 @@ router.get("/newoffer", isAuth, async (req, res) => {
       category.get({ plain: true })
     );
 
+    const cityData = await City.findAll({
+      attributes: ["id", "city"],
+      order: [["city", "ASC"]],
+    });
+    const cities = cityData.map((city) => city.get({ plain: true }));
+
     res.render("offeritem", {
       loggedIn: true,
       categories,
+      cities,
     });
   } catch (err) {
     res.status(500).json(err);

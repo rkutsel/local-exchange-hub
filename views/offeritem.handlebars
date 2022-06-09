@@ -22,13 +22,6 @@
     </div>
 
     <div class="field">
-      <label class="label">City</label>
-      <div class="control">
-        <input id="city-name" class="input is-info" type="text" placeholder="Seattle">
-      </div>
-    </div>
-
-    <div class="field">
       <label class="label">Zip Code</label>
       <div class="control">
         <input id="zip-code" class="input is-info" type="text" placeholder="98105">
@@ -36,13 +29,20 @@
     </div>
     <br>
 
+    <div class="field">
+      <div class="control">
+          <strong>Offer Item Condition</strong>
+        </label>
+      </div>
+    </div>
+
     {{#if categories.length}}
     <div class="field">
         <div class="select">
           <select id="category">
             <option>Choose category</option>
-            {{#each categories as |category|}}
-            <option value="{{category.id}}">{{category.category_name}}</option>
+            {{#each categories }}
+            <option id="category-name" data-categoryid="{{category_name}}">{{category_name}}</option>
             {{/each}}
           </select>
       </div>
@@ -51,10 +51,23 @@
 
     <div class="field">
       <div class="control">
-          <strong>Offer Item Condition</strong>
+          <strong>City Name</strong>
         </label>
       </div>
     </div>
+
+    {{#if cities.length}}
+    <div class="field">
+        <div class="select">
+          <select id="category">
+            <option>Choose City</option>
+            {{#each cities }}
+            <option id="city-name" data-cityid="{{id}}" data-cityname="{{city}}">{{city}}</option>
+            {{/each}}
+          </select>
+      </div>
+    </div>
+    {{/if}}
 
     <div class="field">
       <div class="control">

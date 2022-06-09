@@ -28,14 +28,38 @@ const autoCompleteJS = new autoComplete({
   },
   events: {
     input: {
-      selection: (event) => {
+      selection: async (event) => {
         const selection = event.detail.selection.value;
-        autoCompleteJS.input.value = `${selection.city} ${selection.state}`;
+        autoCompleteJS.input.value = `${selection.city}`;
       },
     },
   },
 });
 
+const searchCity = async (event) => {
+  event.preventDefault();
+  try {
+    const source = await fetch(
+      `/api/autocomplete/city/${autoCompleteJS.input.value}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    ).then((res) => {
+      if (res.ok) {
+        console.log(res.ok);
+        document.location.replace(
+          `/api/autocomplete/city/${autoCompleteJS.input.value}`
+        );
+      }
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
 document
   .querySelector(".search-form")
   .addEventListener("click", autoCompleteJS);
+
+document.querySelector(".search-btn").addEventListener("click", searchCity);
