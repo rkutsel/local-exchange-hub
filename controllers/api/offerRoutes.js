@@ -13,7 +13,7 @@ router.post("/", isAuth, async (req, res) => {
       zipcode: req.body.zipcode,
       url_path: req.body.file,
       user_id: req.session.user_id,
-      // category_id: req.session.category_id,
+      category_id: req.session.category_id,
     });
     if (!offerData) {
       res.status(404).json({ message: "No offer found with this id!" });

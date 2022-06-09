@@ -42,8 +42,8 @@ const newOfferHandler = async (event) => {
     cityId &&
     cityName &&
     zipCode &&
-    categoryId
-    // file
+    categoryId &&
+    file
   ) {
     const response = await fetch("/api/offers", {
       method: "POST",
@@ -55,7 +55,7 @@ const newOfferHandler = async (event) => {
         city_id: cityId,
         zipcode: zipCode,
         category_id: categoryId,
-        // file: await fetchUrl(),
+        file: await fetchUrl(),
       }),
       headers: { "Content-Type": "application/json" },
     });

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Op } = require("sequelize");
-const { City } = require("../../models");
+const { City, OfferItem } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {
@@ -17,11 +17,17 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/city/:cityname", async (req, res) => {
-  console.log(req.params.cityname);
   try {
     const cityName = req.params.cityname;
-    const cityNames = await City.findAll({ where: { city: cityName } });
+    const cityId = await City.findOne({
+      attributes: ["id"],
+      where: { city: cityName },
+    });
+    const cityNames = await OfferItem.findAll({
+      where: { city_id: cityId.id },
+    });
     const results = cityNames.map((city) => city.get({ plain: true }));
+    console.log(results, "<<<<");
 
     res.render("all", {
       results,

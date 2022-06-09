@@ -2,7 +2,7 @@
 <section class="section">
     <div class="container">
         <div class="columns is-8 is-variable is-centered is-flex is-flex-wrap-wrap">
-          {{#each results as |result|}}
+          {{#each results }}
             <a href="/details/{{id}}" class="column is-4-tablet is-3-desktop">
               <div class="card">
                 <div class="card-image">
@@ -10,12 +10,10 @@
                 </div>
                 <div class="card-content">
                   <p>{{offer_name}}</p>
-                  <p>{{free_offer}}</p>
                   <div>
                     <p>{{street_address}}</p>
                     <p>{{city_name}}</p>
                   </div>
-                  
                 </div>
               </div>
             </a>

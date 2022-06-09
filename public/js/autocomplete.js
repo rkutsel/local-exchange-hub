@@ -31,7 +31,6 @@ const autoCompleteJS = new autoComplete({
       selection: async (event) => {
         const selection = event.detail.selection.value;
         autoCompleteJS.input.value = `${selection.city}`;
-        return selection;
       },
     },
   },
@@ -47,9 +46,14 @@ const searchCity = async (event) => {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       }
-    );
-    const data = await source.json();
-    return data;
+    ).then((res) => {
+      if (res.ok) {
+        console.log(res.ok);
+        document.location.replace(
+          `/api/autocomplete/city/${autoCompleteJS.input.value}`
+        );
+      }
+    });
   } catch (error) {
     return error;
   }
