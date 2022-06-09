@@ -165,9 +165,17 @@ router.get("/newoffer", isAuth, async (req, res) => {
       category.get({ plain: true })
     );
 
+    const cityData = await City.findAll({
+      attributes: ["id", "city"],
+      order: [["city", "ASC"]],
+    });
+    console.log(cityData);
+    const cities = cityData.map((city) => city.get({ plain: true }));
+
     res.render("offeritem", {
       loggedIn: true,
       categories,
+      cities,
     });
   } catch (err) {
     res.status(500).json(err);
