@@ -23,7 +23,6 @@ router.delete("/:id", isAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    console.log(commentData);
     if (!commentData) {
       res.status(404).json({ message: "No comment found with this id!" });
       return;
@@ -36,7 +35,6 @@ router.delete("/:id", isAuth, async (req, res) => {
 
 router.put("/:id", isAuth, async (req, res) => {
   try {
-    console.log(req.params.id, req.session.user_id);
     const commentData = await Comment.update(req.body, {
       where: {
         id: req.params.id,
