@@ -18,7 +18,7 @@
   </div>
 </section>
 
-<section class="columns">
+<section>
   {{#if offer_items.length}}
     <div class="offer-list hero-body">
       <h3 class="has-text-weight-bold mb-2">My Current Offers</h3>
@@ -26,7 +26,7 @@
       {{#each offer_items}}
         <a href="/details/{{this.id}}" data-id="{{this.id}}">
           <div class="box">
-            <article class="media">
+            <article class="media m-2">
               <div class="media-left">
                 <figure class="image is-96x96">
                   <img src={{this.url_path}} alt="Image" />
