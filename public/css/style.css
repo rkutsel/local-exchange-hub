@@ -57,12 +57,13 @@ body {
   background-color: var(--green);
   color: var(--light);
 }
-
+/* Footer text color */
 footer p a,
 footer p strong {
   color: var(--light);
 }
 
+/* mit license color */
 footer p a .mit {
   color: rgb(25, 202, 170);
 }
