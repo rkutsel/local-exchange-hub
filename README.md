@@ -1,26 +1,10 @@
 ### MIT License
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Title
-
-## Table of Contents
-
-- [Description](#Description)
-
-- [Installation Instructions](#Installation)
-
-- [Usage with Examples](#User Story)
-
-- [Features](#Features)
-
-- [Credits](#Credits)
-
-- [Contribute](#Contribute)
-
-- [Tests](#Tests)
+# [Local Exchange Hub](https://local-exchange-hub.herokuapp.com/)
 
 ## Description
-When the user navigates to the Local Exchange homepage, they are presented with a random assortment of items that have been posted by other users. In the navigation bar, they can search by city, Login, or Signup.
+When the user navigates to the Local Exchange homepage, they are presented with a random assortment of items that have been posted by other users. In the navigation bar, they can search by city, Login, or Signup. 
 
 When the user clicks the Login button, they are taken to a form where they can enter their credentials, login and access their profile. When they click on the Signup button, they are taken to a form where they enter their name, email, and password.
 When the user starts to enter a city name, the search field auto-completes the text. When the Search button is clicked the user is presented with a listing of offers based on the city they searched.
@@ -29,6 +13,8 @@ When the user clicks on a listing card, they are taken to a detailed page of the
 
 When the user clicks on Profile they are presented with a listing of their own offers that they have posted, where they can delete an offer from the site and create new offers.
 When the user click on the button to create a new offer, they are taken to a form where they enter relevant information about the item being offered, and these items become available on the homepage, search results page, and item details page.
+
+## [Link To Deployed APP](https://local-exchange-hub.herokuapp.com/)
 
 ## Installation Instructions
 >NOTE: Make sure you have Node.JS ~v16.14.2 and NPM ~8.11.0 installed. You can quickly check this by running node -v for Node.JS and npm -v for NPM in your terminal. Additionally this application requires mysql ~8.0.29
