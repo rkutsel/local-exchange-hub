@@ -31,19 +31,12 @@ When the user clicks on Profile they are presented with a listing of their own o
 When the user click on the button to create a new offer, they are taken to a form where they enter relevant information about the item being offered, and these items become available on the homepage, search results page, and item details page.
 
 ## Installation Instructions
-NOTE: Make sure you have Node.JS ~v16.14.2 and NPM ~8.11.0 installed. You can quickly check this by running node -v for Node.JS and npm -v for NPM in your terminal. Additionally this application requires mysql ~8.0.29
+>NOTE: Make sure you have Node.JS ~v16.14.2 and NPM ~8.11.0 installed. You can quickly check this by running node -v for Node.JS and npm -v for NPM in your terminal. Additionally this application requires mysql ~8.0.29
 
 Clone Repo 
 Once the above is confirmed, clone the repo git clone git@github.com:rkutsel/local-exchange-hub.git and initialize the database using MySQL. Access the MySQL shell in terminal and run the schema.sql file in the db directory.
 
-Once the database is initialized, create a storage bucket for the firebase image upload feature by running the below in your terminal: 
-* export apiKey="AIzaSyCXnF7k4jsOwdNXFxjNr3XCcleZkWl5ckQ"
-* export authDomain="local-exchange-hub-db3b9.firebaseapp.com"
-* export projectId="local-exchange-hub-db3b9"
-* export storageBucket="local-exchange-hub-db3b9.appspot.com"
-
-To test that these were run correctly, run: ```env | grep apiKey```. If installed, the below will appear:
-* apiKey=AIzaSyCXnF7k4jsOwdNXFxjNr3XCcleZkWl5ckQ
+Once the database is initialized, create a storage bucket for the firebase image and setup your credentials similar to this [guide](https://firebase.google.com/docs/web/setup).
 
 Install local dependencies
 Then install the dependencies by running npm i in your terminal. We recommend installing them locally. 
