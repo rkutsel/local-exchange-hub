@@ -52,3 +52,17 @@ body {
   background-color: #ae0000;
   border: 0px;
 }
+
+.footer {
+  background-color: var(--green);
+  color: var(--light);
+}
+
+footer p a,
+footer p strong {
+  color: var(--light);
+}
+
+footer p a .mit {
+  color: rgb(25, 202, 170);
+}
