@@ -62,9 +62,9 @@ router.get("/details/:id", isAuth, async (req, res) => {
     });
 
     const offerDetail = offerData.get({ plain: true });
+    console.log(offerDetail)
     res.render("details", {
       ...offerDetail,
-      sessionUserId,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
