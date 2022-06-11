@@ -1,17 +1,14 @@
-const newOfferHandler = async (event) => {
+let selectedCity = [];
+let selectedCategory = Number;
+
+async function newOfferHandler(event) {
   event.preventDefault();
 
   const itemName = document.querySelector("#item-name").value.trim();
   const description = document.querySelector("#description").value.trim();
   const streetAddress = document.querySelector("#street-address").value.trim();
-  const cityNameSelector = document.querySelector("#city-name");
   const zipCode = document.querySelector("#zip-code").value.trim();
-  const itemNew = document.querySelector("#item-new").value;
-  const categorySelector = document.querySelector("#category-name");
   const file = document.querySelector("#file-name");
-  const cityId = cityNameSelector.dataset.cityid;
-  const cityName = cityNameSelector.dataset.cityname;
-  const categoryId = categorySelector.dataset.categoryid;
 
   let formData = new FormData();
   formData.append("file", file.files[0]);
@@ -30,7 +27,6 @@ const newOfferHandler = async (event) => {
         return response.text().then((el) => el);
       } else {
         alert("Error: Failed to upload a file. Please try again.");
-        return "GOOD";
       }
     }
   }
@@ -39,10 +35,10 @@ const newOfferHandler = async (event) => {
     itemName &&
     description &&
     streetAddress &&
-    cityId &&
-    cityName &&
+    selectedCity[0] &&
+    selectedCity[1] &&
+    selectedCategory &&
     zipCode &&
-    categoryId &&
     file
   ) {
     const response = await fetch("/api/offers", {
@@ -51,21 +47,40 @@ const newOfferHandler = async (event) => {
         offer_name: itemName,
         offer_description: description,
         street_address: streetAddress,
-        city_name: cityName,
-        city_id: cityId,
+        city_id: selectedCity[0],
+        city_name: selectedCity[1],
         zipcode: zipCode,
-        category_id: categoryId,
-        file: await fetchUrl(),
+        category_id: selectedCategory,
+        url_path: await fetchUrl(),
       }),
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert("Failed to post.");
+      alert("Failed to post. Please try again.");
     }
   }
-};
+}
+
+document.querySelector("#category").addEventListener(
+  "change",
+  (event) => {
+    const [item] = event.target.selectedOptions;
+    selectedCategory = item.dataset.categoryid;
+  },
+  false
+);
+
+document.querySelector("#city").addEventListener(
+  "change",
+  (event) => {
+    const [item] = event.target.selectedOptions;
+    selectedCity[0] = item.dataset.cityid;
+    selectedCity[1] = item.dataset.cityname;
+  },
+  false
+);
 
 document
   .querySelector("#submit-offer")
