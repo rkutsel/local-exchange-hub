@@ -8,7 +8,6 @@ router.post("/", isAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log(req.body);
     if (!offerData) {
       res.status(404).json({ message: "No offer found with this id!" });
       return;
