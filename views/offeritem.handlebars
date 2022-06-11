@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="box">
+    <div class="field">
+      <label class="label">Offer Name</label>
+      <div class="control">
+        <input id="item-name" class="input is-info" type="text" placeholder="Bike">
+      </div>
+    </div>
+
+    <div class="field">
+      <label  class="label">Offer Description</label>
+      <div class="control">
+        <textarea id="description" class="textarea is-info" placeholder="Used bike in great condition."></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Street Address</label>
+      <div class="control">
+        <input id="street-address" class="input is-info" type="text" placeholder="4001 1st Ave NE Seattle, WA 98105">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Zip Code</label>
+      <div class="control">
+        <input id="zip-code" class="input is-info" type="text" placeholder="98105">
+      </div>
+    </div>
+    <br>
+
+    <div class="field">
+      <div class="control">
+          <strong>Category</strong>
+        </label>
+      </div>
+    </div>
+
+    {{#if categories.length}}
+    <div class="field">
+        <div class="select">
+          <select id="category">
+            <option>Choose category</option>
+            {{#each categories }}
+            <option id="category-name" data-categoryid="{{category_name}}">{{category_name}}</option>
+            {{/each}}
+          </select>
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="field">
+      <div class="control">
+          <strong>City Name</strong>
+        </label>
+      </div>
+    </div>
+
+    {{#if cities.length}}
+    <div class="field">
+        <div class="select">
+          <select id="category">
+            <option>Choose City</option>
+            {{#each cities }}
+            <option id="city-name" data-cityid="{{id}}" data-cityname="{{city}}">{{city}}</option>
+            {{/each}}
+          </select>
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="field">
+      <div class="control">
+          <strong>Offer Item Condition</strong>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input id="item-new" type="checkbox" name="question">
+          New
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="question" checked>
+          Used
+        </label>
+      </div>
+    </div>
+    <div class="file is-small is-boxed">
+      <label class="file-label">
+        <input id="file-name" class="file-input" type="file" name="resume">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Upload An Image…
+          </span>
+        </span>
+      </label>
+    </div>
+    <br>
+    <div class="field is-grouped">
+      <div class="control">
+        <button id="submit-offer" class="button is-info">Submit</button>
+      </div>
+      <div class="control">
+        <a href="/"><button class="button is-info is-light">Cancel</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/newoffer.js"></script>

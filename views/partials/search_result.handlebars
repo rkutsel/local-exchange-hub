@@ -1,0 +1,47 @@
+{{#if results.length}}
+<section class="section">
+    <div class="container">
+        <div class="columns is-8 is-variable is-centered is-flex is-flex-wrap-wrap">
+          {{#each results }}
+            <a href="/details/{{id}}" class="column is-flex is-4-tablet is-3-desktop">
+              <div class="card">
+                <div class="card-image">
+                  <img src={{url_path}} alt="Placeholder image">
+                </div>
+                <div class="card-content">
+                  <p>{{offer_name}}</p>
+                  <div>
+                    <p>{{street_address}}</p>
+                    <p>{{city_name}}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

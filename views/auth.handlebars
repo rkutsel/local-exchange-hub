@@ -1,0 +1,36 @@
+<div class="columns is-mobile is-centered mt-6">
+  <div class="column is-half">
+    <div class="card">
+        {{#if isLogin}}
+          <header class="card-header has-background-info">
+          <p class="card-header-title">
+          <strong>Login</strong>
+        {{else}}
+          <header class="card-header has-background-primary">
+          <p class="card-header-title">
+          <strong>Sign up</strong>
+        {{/if}}
+      </p>
+    </header>
+      <div class="card-content">
+      {{#if isLogin }}
+        {{> auth-login}}
+      {{else}}
+        {{> auth-signup}}
+      {{/if}}
+        <div class="content">
+        </div>
+      </div>
+    <footer class="card-footer">
+        {{#if isLogin}}
+          <a href="/login" class="card-footer-item login-form"><strong>Login</strong></a>
+          <script src="/js/login.js"></script>
+        {{else}}
+          <a href="/signup" class="card-footer-item signup-form"><strong>Sign up</strong></a>
+          <script src="/js/signup.js"></script>
+        {{/if}}
+      <a href="/" class="card-footer-item"><strong>Cancel</strong></a>
+    </footer>
+   </div>
+  </div>
+</div>

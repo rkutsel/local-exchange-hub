@@ -1,0 +1,63 @@
+<section class="hero columns">
+  <div class="hero-body">
+    <div
+      class="column is-two-fifths-mobile is-half-tablet is-half-desktop is-half-widescreen is-narrow-fullhd m-2 is-clipped"
+    >
+      <h1 class="is-size-2">Hello, {{full_name}}!</h1>
+      <p class="is-size-4">Your Account Email: <span>{{email}}</span></p>
+    </div>
+    <div
+      class="column is-four-fifths-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-narrow-fullhd m-2"
+    >
+      <a href="/newoffer">
+        <button class="button is-large neutral-btn has-text-white level-item">
+          Create New Offer
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  {{#if offer_items.length}}
+    <div class="offer-list hero-body">
+      <h3 class="has-text-weight-bold mb-2">My Current Offers</h3>
+
+      {{#each offer_items}}
+        <a href="/details/{{this.id}}" data-id="{{this.id}}">
+          <div class="box">
+            <article class="media m-2">
+              <div class="media-left">
+                <figure class="image is-96x96">
+                  <img src={{this.url_path}} alt="Image" />
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>{{this.offer_name}}</strong>
+                    <br />
+                    {{this.offer_description}}
+                  </p>
+                  <ul>
+                    <li>
+                      Item Condition:
+                      {{this.offer_condition}}
+                    </li>
+                  </ul>
+                  <button
+                    class="button is-small red-btn dltbtn has-text-white"
+                    data-id="{{this.id}}"
+                  >Remove offer from site</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </a>
+
+      {{/each}}
+    </div>
+  {{/if}}
+</section>
+
+<script src="/js/profile.js"></script>

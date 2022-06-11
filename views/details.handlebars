@@ -1,0 +1,74 @@
+<div class="columns is-mobile is-centered mt-6 pt-6">
+  <div class="column is-9">
+    <p class="has-text-centered is-size-1">{{offer_name}}</p>
+    <p class="has-text-centered"><b>{{category.category_name}}</b></p>
+    <form class="box">
+      <div class="field">
+        <div class="control">
+          <p><b>Posted On: </b>{{format_date offer_date}}</p>
+          <p><b>By: </b>{{user.full_name}}</p>
+          <p><b>Condition: </b>{{offer_condition}}</p>
+        </div>
+          <figure class="image is-5by4">
+            <img src={{url_path}} />
+          </figure>
+      </div>
+      <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+          <p>{{offer_description}}</p>
+        </div>
+      </div>
+      <div
+        id="map"
+        data-lat="{{city.latitude}}"
+        data-lon="{{city.longitude}}"
+      ></div>
+      {{#if comments.length}}
+        <div class="col comment-list">
+          <h3><b>Comments</b></h3>
+          {{#each comments as |comment|}}
+            <div class="box p-0 columns">
+              <div class="column is-four-fifths">
+                <p><b>{{comment.user.full_name}},
+                    {{format_date comment.date_created}}:</b></p>
+                <p><i>{{comment.comment}}</i></p>
+              </div>
+              {{#if (is_equal comment.user_id sessionUserId)}}
+                <div class="column">
+                  <button
+                    id="edit-comment-btn"
+                    class="button is-small is-warning is-light"
+                    data-eid="{{comment.id}}"
+                  >Edit</button>
+                  <button
+                    id="delete-comment-btn"
+                    class="button is-small is-danger is-light"
+                    data-id="{{comment.id}}"
+                  >Delete</button>
+                </div>
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+      <h3 class="pt-5"><b>Leave a Comment</b></h3>
+      <div class="field">
+        <div class="control">
+          <textarea
+            id="new-comment"
+            class="textarea"
+            rows="5"
+          >{{oldComment.comment}}</textarea>
+        </div>
+      </div>
+      <button
+        class="button is-primary new-comment-form"
+        type="submit"
+        data-cid="{{oldComment.id}}"
+      >Submit</button>
+    </form>
+  </div>
+</div>
+<script src="/js/comment.js"></script>
+<script src="/js/leaflet.js"></script>

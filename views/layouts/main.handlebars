@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Exchange Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"
+    ></script>
+    <script defer src="/js/all.js"></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar is-dark custom-navbar"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/" class="navbar-item has-text-white"><strong
+              >Home</strong></a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="control">
+                <input
+                  id="autoComplete"
+                  class="input search-form"
+                  type="text"
+                  placeholder="Seattle"
+                />
+              </div>
+              <div class="control">
+                <a class="button light-btn search-btn">
+                  <i class="fa-solid fa-search"></i><strong class="ml-2">Search</strong>
+                </a>
+                <script src="/js/autocomplete.js"></script>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <div class="buttons">
+                {{#if loggedIn}}
+                  <div class="navbar-item">
+                    <a
+                      id="profile"
+                      class="button neutral-btn has-text-white"
+                      href="/profile"
+                    >
+                      <i class="fa-solid fa-user"></i><strong
+                        class="ml-2"
+                      >Profile</strong>
+                    </a>
+                  </div>
+                  <a
+                    id="logout"
+                    class="button red-btn has-text-white"
+                  ><i class="fa-solid fa-sign-out"></i><strong class="ml-2">Logout</strong></a>
+                {{else}}
+                  <a href="/login" class="button is-info"><strong>Log in</strong></a>
+                  <a href="/signup" class="button is-primary"><strong>Sign up</strong></a>
+
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="hero is-small is-info">
+      <div class="hero-body custom-hero">
+        <p class="title custom-text">
+          Local Exchange Hub
+        </p>
+        <p class="subtitle custom-text">
+          Trade goods or give them away for free
+        </p>
+      </div>
+    </section>
+    {{{body}}}
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Local Exchange Hub</strong>
+        The source code is available and licensed under
+        <a href="http://opensource.org/licenses/mit-license.php"><span class="mit">MIT</span></a>
+        license.
+      </p>
+      <p>
+        <a href="https://github.com/rkutsel/local-exchange-hub">
+          <span class="icon is-large">
+            <i class="fa-brands fa-github fa-4x"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+  </footer>
+</html>
