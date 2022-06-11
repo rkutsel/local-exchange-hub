@@ -1,22 +1,25 @@
 const commentFormHandler = async (event) => {
   event.preventDefault();
-  const id = window.location.href.split('/')[window.location.href.split('/').length - 1];
-  // console.log(id);
+  const id =
+    window.location.href.split("/")[window.location.href.split("/").length - 1];
   // Collect values from the comment form
-  const comment = document.querySelector('#new-comment').value.trim();
+  const comment = document.querySelector("#new-comment").value.trim();
   const commentId = event.target.getAttribute("data-cid");
 
   if (comment) {
     let response;
     if (commentId) {
       response = await fetch(`/api/comments/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         body: JSON.stringify({ comment }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
       if (response.ok) {
         // If successful, redirect the browser to the details page
-        const offerId = window.location.href.split('/')[window.location.href.split('/').length - 2];
+        const offerId =
+          window.location.href.split("/")[
+            window.location.href.split("/").length - 2
+          ];
         document.location.replace(`/details/${offerId}`);
       } else {
         alert(response.statusText);
@@ -25,41 +28,54 @@ const commentFormHandler = async (event) => {
       // Send a POST request to the API endpoint
       // console.log("comment:" , user_comment);
       response = await fetch(`/api/comments/${id}`, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify({ comment }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
       if (response.ok) {
         // If successful, redirect the browser to the details page
-        const offerId = window.location.href.split('/')[window.location.href.split('/').length - 1];
+        const offerId =
+          window.location.href.split("/")[
+            window.location.href.split("/").length - 1
+          ];
         document.location.replace(`/details/${offerId}`);
       } else {
         alert(response.statusText);
       }
     }
-    // const result = await response.json();
-    // console.log(result);
-
   }
 };
 
 const delButtonHandler = async (event) => {
   event.preventDefault();
-  if (event.target.hasAttribute('data-id')) {
-    const commentId = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute("data-id")) {
+    const commentId = event.target.getAttribute("data-id");
     const response = await fetch(`/api/comments/${commentId}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
     if (response.ok) {
-      if (isNaN(parseInt(window.location.href.split('/')[window.location.href.split('/').length - 2]))) {
-        const offerId = window.location.href.split('/')[window.location.href.split('/').length - 1];
+      if (
+        isNaN(
+          parseInt(
+            window.location.href.split("/")[
+              window.location.href.split("/").length - 2
+            ]
+          )
+        )
+      ) {
+        const offerId =
+          window.location.href.split("/")[
+            window.location.href.split("/").length - 1
+          ];
         document.location.replace(`/details/${offerId}`);
       } else {
-        const offerId = window.location.href.split('/')[window.location.href.split('/').length - 2];
-        document.location.replace(`/details/${offerId}`)
+        const offerId =
+          window.location.href.split("/")[
+            window.location.href.split("/").length - 2
+          ];
+        document.location.replace(`/details/${offerId}`);
       }
     } else {
-
       alert("Cannot delete someone else's comment!");
     }
   }
@@ -67,42 +83,43 @@ const delButtonHandler = async (event) => {
 
 const editButtonHandler = async (event) => {
   event.preventDefault();
-  if (event.target.hasAttribute('data-eid')) {
-    const commentId = event.target.getAttribute('data-eid');
-    console.log(commentId)
-    // const response = await fetch(`/oldcomment/${commentId}`, {
-    //     method: 'GET',
-    // });
-    // console.log(response)
-    // if (response.ok) {
-      console.log(window.location.href.split('/'))
-    if (isNaN(parseInt(window.location.href.split('/')[window.location.href.split('/').length - 2]))) {
-      console.log("first")
-      const offerId = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  if (event.target.hasAttribute("data-eid")) {
+    const commentId = event.target.getAttribute("data-eid");
+    if (
+      isNaN(
+        parseInt(
+          window.location.href.split("/")[
+            window.location.href.split("/").length - 2
+          ]
+        )
+      )
+    ) {
+      const offerId =
+        window.location.href.split("/")[
+          window.location.href.split("/").length - 1
+        ];
       document.location.replace(`/oldcomment/${offerId}/${commentId}`);
     } else {
-      console.log("second")
-      const offerId = window.location.href.split('/')[window.location.href.split('/').length - 2];
+      const offerId =
+        window.location.href.split("/")[
+          window.location.href.split("/").length - 2
+        ];
       document.location.replace(`/oldcomment/${offerId}/${commentId}`);
     }
-
-    // } else {
-    // alert("Cannot edit someone else's comment!");
-    // }
   }
 };
 
 document
-  .querySelector('.new-comment-form')
-  .addEventListener('click', commentFormHandler);
+  .querySelector(".new-comment-form")
+  .addEventListener("click", commentFormHandler);
 
 const commentList = document.querySelector(".comment-list");
 if (commentList) {
   document
-    .querySelector('#delete-comment-btn')
-    .addEventListener('click', delButtonHandler);
+    .querySelector("#delete-comment-btn")
+    .addEventListener("click", delButtonHandler);
 
   document
-    .querySelector('#edit-comment-btn')
-    .addEventListener('click', editButtonHandler);
-};
+    .querySelector("#edit-comment-btn")
+    .addEventListener("click", editButtonHandler);
+}
