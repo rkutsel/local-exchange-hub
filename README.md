@@ -39,7 +39,9 @@ As a thrifty consumer that is conscious of waste and its impact on the environme
 I want to be able to search my local area and find used goods that I need
 I also want to be able to post any of my own used goods that I would like to recycle rather than throw away.
 ```
-**ADD SCREENSHOTS HERE**
+![a screenshot of the homepage of the website showing a login navigation in the upper right corner, assortment of offers, and a search bar ](./assets/homepage.png)
+![a screenshot of the user profile page showing their current offers, a create new offer button, and high level account info ](./assets/user-profile.png)
+![a screenshot of the new offer item form](./assets/new-offer-form.png)
 
 ## Features
 The current state features include:
