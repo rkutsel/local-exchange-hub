@@ -47,14 +47,16 @@
             class="navbar-burger"
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbar"
+            data-target="navbar-mobile"
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
+
         </div>
-        <div id="navbar" class="navbar-menu">
+
+        <div id="navbar-mobile" class="navbar-menu">
           <div class="navbar-start">
             <a href="/" class="navbar-item has-text-white"><strong
               >Home</strong></a>
@@ -71,7 +73,9 @@
               </div>
               <div class="control">
                 <a class="button light-btn search-btn">
-                  <i class="fa-solid fa-search"></i><strong class="ml-2">Search</strong>
+                  <i class="fa-solid fa-search"></i><strong
+                    class="ml-2"
+                  >Search</strong>
                 </a>
                 <script src="/js/autocomplete.js"></script>
               </div>
@@ -90,10 +94,9 @@
                       >Profile</strong>
                     </a>
                   </div>
-                  <a
-                    id="logout"
-                    class="button red-btn has-text-white"
-                  ><i class="fa-solid fa-sign-out"></i><strong class="ml-2">Logout</strong></a>
+                  <a id="logout" class="button red-btn has-text-white"><i
+                      class="fa-solid fa-sign-out"
+                    ></i><strong class="ml-2">Logout</strong></a>
                 {{else}}
                   <a href="/login" class="button is-info"><strong>Log in</strong></a>
                   <a href="/signup" class="button is-primary"><strong>Sign up</strong></a>
@@ -119,22 +122,26 @@
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Local Exchange Hub</strong>
+          The source code is available and licensed under
+          <a href="http://opensource.org/licenses/mit-license.php"><span
+              class="mit"
+            >MIT</span></a>
+          license.
+        </p>
+        <p>
+          <a href="https://github.com/rkutsel/local-exchange-hub">
+            <span class="icon is-large">
+              <i class="fa-brands fa-github fa-4x"></i>
+            </span>
+          </a>
+        </p>
+      </div>
+    </footer>
+    <script src="/js/toggle.js"></script>
   </body>
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Local Exchange Hub</strong>
-        The source code is available and licensed under
-        <a href="http://opensource.org/licenses/mit-license.php"><span class="mit">MIT</span></a>
-        license.
-      </p>
-      <p>
-        <a href="https://github.com/rkutsel/local-exchange-hub">
-          <span class="icon is-large">
-            <i class="fa-brands fa-github fa-4x"></i>
-          </span>
-        </a>
-      </p>
-    </div>
-  </footer>
 </html>
